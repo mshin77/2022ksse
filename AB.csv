@@ -1,4 +1,4 @@
-Case,Session,Centered.a,Centered.b,PhaseB,PhaseB.Centered.b,Outcome
+Case,Session,Centered.a,Centered.b,Intervention,Intervention.Centered.b,Outcome
 1,1,0,-3,0,0,20
 1,2,1,-2,0,0,20
 1,3,2,-1,0,0,0
