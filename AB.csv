@@ -1,4 +1,4 @@
-Case,Session,A.c,B.c,B,B_B.c,Outcome
+Case,Session,A.c,B.c,PhaseB,PhaseB_B.c,Outcome
 1,1,0,-3,0,0,20
 1,2,1,-2,0,0,20
 1,3,2,-1,0,0,0
