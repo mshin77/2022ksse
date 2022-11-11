@@ -1,4 +1,4 @@
-Case,Session,Session.a,Session.b,Intervention,Intervention_Session.b,Outcome
+Case,Session,Time,Time.c,Intervention,Intervention_Time.c,Outcome
 1,1,0,-3,0,0,20
 1,2,1,-2,0,0,20
 1,3,2,-1,0,0,0
