@@ -11,8 +11,8 @@ Case,Session,Phase ,Outcome
 1,10,Baseline2,30
 1,11,Baseline2,20
 1,12,Baseline2,18
-1,13,Intervention1,80
-1,14,Intervention1,90
-1,15,Intervention1,85
-1,16,Intervention1,85
-1,17,Intervention1,90
+1,13,Intervention2,80
+1,14,Intervention2,90
+1,15,Intervention2,85
+1,16,Intervention2,85
+1,17,Intervention2,90
