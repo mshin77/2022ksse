@@ -1,14 +1,18 @@
-Case,Session,Time,Time.c,Phase ,Intervention,Intervention_Time.c,Outcome
-1,1,0,-3,Baseline,0,0,20
-1,2,1,-2,Baseline,0,0,20
-1,3,2,-1,Baseline,0,0,0
-1,4,3,0,Intervention,1,0,40
-1,5,4,1,Intervention,1,1,60
-1,6,5,2,Intervention,1,2,40
-1,7,6,3,Intervention,1,3,60
-1,8,7,4,Intervention,1,4,65
-1,9,8,5,Intervention,1,5,60
-1,10,9,6,Intervention,1,6,60
-1,11,10,7,Intervention,1,7,80
-1,12,11,8,Intervention,1,8,90
-1,13,12,9,Intervention,1,9,80
+Case,Session,Phase ,Outcome
+1,1,Baseline1,20
+1,2,Baseline1,20
+1,3,Baseline1,0
+1,4,Intervention1,40
+1,5,Intervention1,60
+1,6,Intervention1,40
+1,7,Intervention1,60
+1,8,Intervention1,65
+1,9,Baseline2,20
+1,10,Baseline2,30
+1,11,Baseline2,20
+1,12,Baseline2,18
+1,13,Intervention1,80
+1,14,Intervention1,90
+1,15,Intervention1,85
+1,16,Intervention1,85
+1,17,Intervention1,90
