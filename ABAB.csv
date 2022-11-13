@@ -2,6 +2,9 @@ Case,Session,Phase ,Outcome
 1,1,Baseline1,20
 1,2,Baseline1,20
 1,3,Baseline1,0
+1,4,Baseline1,0
+1,5,Baseline1,0
+1,6,Baseline1,0
 1,4,Intervention1,40
 1,5,Intervention1,60
 1,6,Intervention1,40
