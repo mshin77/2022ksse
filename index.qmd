@@ -12,9 +12,9 @@ format:
     code-overflow: scroll
     code-link: true
     highlight-style: a11y
-    linestretch: 1.5
-    height: 1080
-    width: 1920
+linestretch: 1.5
+width: 1024 
+height: 768
 execute: 
   eval: true
   echo: true
