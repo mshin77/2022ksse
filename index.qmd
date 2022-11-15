@@ -2,6 +2,8 @@
 format: 
   revealjs:
     theme: ["theme/ppt-theme.scss"]
+    transition: slide
+    transition-speed: fast
     slide-number: c/t
     logo: ""
     code-copy: true
@@ -12,6 +14,8 @@ format:
     code-overflow: scroll
     code-link: true
     highlight-style: a11y
+    touch: false
+    controls: true
 linestretch: 1.5
 width: 1024 
 height: 768
@@ -27,8 +31,8 @@ execute:
 <br>
 <h3> Longitudinal Analysis for Single-Case Experimental Design Meta-Analyses: Using R </h3>
 <h4> Mikyung Shin (Assistant Professor, Dept. of Education) </h4>
-<h4> `r fontawesome::fa("github", "black")` &nbsp; [github.com/mshin77/2022ksse](https://github.com/mshin77/2022ksse) &nbsp;
-`r fontawesome::fa("home", "black")` &nbsp; [mshin77.net](https://mshin77.net) </h4>
+<h4> `r fontawesome::fa("github", "#233150")` &nbsp; [github.com/mshin77/2022ksse](https://github.com/mshin77/2022ksse) &nbsp;
+`r fontawesome::fa("home", "#233150")` &nbsp; [mshin77.net](https://mshin77.net) </h4>
 
 
 ::: footer
@@ -165,7 +169,7 @@ AB.plot %>% ggplotly() %>% layout(dragmode = "select", height=400)
 
 - 개인 간 변화(시간에 따라 변하지 않는 개별 특성)와 개인 내 변화(시간에 따라 변하는 변수)를 동시에 측정
 
-[(Hamaker외, 2021)](https://ellenhamaker.github.io/DSEM-book-chapter/MLM1to6.html#Multilevel_Model_1) ![](https://ellenhamaker.github.io/DSEM-book-chapter/images/MLM0.jpg){height="400"} 
+[[(Hamaker외, 2021)](https://ellenhamaker.github.io/DSEM-book-chapter/MLM1to6.html#Multilevel_Model_1)]{style="font-size: 0.86em"} ![](https://ellenhamaker.github.io/DSEM-book-chapter/images/MLM0.jpg){height="400"} 
 
 
 :::
@@ -326,13 +330,13 @@ sced.plot %>%  ggplotly()
 
 ## `3수준 다층 모형` 
 
-* [단일대상 실험설계 데이터만 포함]{style="background-color: yellow"}하여 한 단계로 메타분석 실시. 
+* 단일대상 실험설계 데이터만 포함하여 한 단계로 메타분석 실시. 
 
 * 연구질문 1 "장애학생들을 위한 가상조작물을 활용한 수학 중재는 어떠한 `즉각적인 중재 효과` 및 중재 구간에서의 `변화 추세`를 보였는가?"
 
 * 연구질문 2 "`장애학생` 및 `연구 수준의 특성`에 따라 즉각적인 중재 효과 및 중재 구간에서의 변화는 어떻게 달라지는가?  
 
-[Shin, M., Park, J., Grimes, R., & Bryant, D. P. (2021). Effects of using virtual manipulatives for students with disabilities: Three-level multilevel modeling for single-case data. *Exceptional Children, 87*(4), 418–437.]
+[Shin, M., Park, J., Grimes, R., & Bryant, D. P. (2021). Effects of using virtual manipulatives for students with disabilities: Three-level multilevel modeling for single-case data. *Exceptional Children, 87*(4), 418–437.]{style="font-size: 0.86em"} &nbsp; [`r fontawesome::fa("code", "#777B7E")`](https://osf.io/wvtxg/files/osfstorage)
 
 ---
 
@@ -406,8 +410,7 @@ $$
 
 ## Model.1
 
-[`library(nlme)`](https://cran.r-project.org/web/packages/nlme){fig-align="left"} lme() 함수 <br>
-[`분석 데이터 다운로드`](https://osf.io/wvtxg/files/osfstorage) 
+[`library(nlme)`](https://cran.r-project.org/web/packages/nlme){style="background-color: #f0f0f0"} lme() 함수 <br>
 조절 변수 포함하지 않음 
 
 ```{r}
@@ -519,13 +522,13 @@ Model.3 <- lme(Outcome ~ 1 + Intervention + Intervention_Time +
 - 단일대상과 집단 연구의 효과크기로 함께 메타분석 실행  
 - [`library(clubSandwich)`](https://cran.r-project.org/web/packages/clubSandwich/index.html){style="background-color: #f0f0f0"} 2개 이상의 종속변인 효과크기 간 상관관계. robust variance estimation (RVE) 표준오차 
 - [`library(metafor)`](https://cran.r-project.org/web/packages/metafor/index.html){style="background-color: #f0f0f0"} 연구 수준의 조절 변수 고려
-- Kim, S. A., Bryant, D. P., Bryant, B. R., Shin, M., & Ok, M. W. (2022). A multilevel meta-analysis of whole number computation interventions for students with learning disabilities. *Remedial and Special Education*. Advance online publication [[`분석 데이터 다운로드`].](https://osf.io/wuk5p/files/osfstorage)
+- [Kim, S. A., Bryant, D. P., Bryant, B. R., Shin, M., & Ok, M. W. (2022). A multilevel meta-analysis of whole number computation interventions for students with learning disabilities. *Remedial and Special Education*. Advance online publication.]{style="font-size: 0.86em"} &nbsp; [`r fontawesome::fa("code", "#777B7E")`](https://osf.io/wuk5p/files/osfstorage) 
 
 ## 2단계 (방법 2)
 
 - [`library(robumeta)`](https://cran.r-project.org/web/packages/robumeta/index.html){style="background-color: #f0f0f0"} robu() 함수 
 - 사례 단일대상 연구만 포함하여 2수준 다층 분석 후 메타분석
-- Shin, M., Bryant, D. P., Powell, S. R., Jung, P. G., Ok, M. W., & Hou, F. (2021). A meta-analysis of single-case research on word-problem instruction for students with learning disabilities. *Remedial and Special Education, 42*(6), 398-411 [[`분석 데이터 다운로드`].](https://osf.io/xr58s/files/osfstorage)
+- [Shin, M., Bryant, D. P., Powell, S. R., Jung, P. G., Ok, M. W., & Hou, F. (2021). A meta-analysis of single-case research on word-problem instruction for students with learning disabilities. *Remedial and Special Education, 42*(6), 398-411.]{style="font-size: 0.86em"} &nbsp; [`r fontawesome::fa("code", "#777B7E")`](https://osf.io/xr58s/files/osfstorage) 
 
 :::
 
