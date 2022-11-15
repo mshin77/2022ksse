@@ -267,61 +267,9 @@ sced.plot %>% ggplotly()
 ## `구간 별 선형회귀선` 
 
 ```{r}
-Data1$case <- paste0("학생 ", Data1$case, sep = "")
-
-B1_v <- if(!is.null(Data1$Baseline)) {
-    Data1 %>%
-        filter(Baseline == 1) %>%
-        group_by(case) %>%
-        mutate(min_B1 = min(session)) %>%
-        mutate(max_B1 = max(session))
-}
-
-T1_v <- if(!is.null(Data1$Intervention)) {
-    Data1 %>%
-        filter(Intervention == 1) %>%
-        group_by(case) %>%
-        mutate(min_T1 = min(session)) %>%
-        mutate(max_T1 = max(session))
-}
-
-
-sced.plot <-  Data1 %>%
-    ggplot(aes(session, outcome, color = phase, shape = phase)) +
-    facet_wrap(~ case, ncol = 1) +
-    geom_line(data = Data1 %>% filter(phase %in% c("Baseline", "Intervention")),
-              aes(group = phase), linewidth = 0.5) +
-    geom_point(size = 2.5) +
-    theme_minimal(base_size = 13) +
-    theme(
-        plot.title = element_text(face = "bold", size = 15),
-        legend.position ="top",
-        panel.grid.major = element_line(colour = "grey90", linewidth = 0.2),
-        panel.grid.minor = element_blank(),
-        legend.text = element_text(size = 13),
-        legend.title = element_text(size = 13),
-        legend.title.align = 0.5,
-        strip.text.x = element_text(color = "#3B3B3B", size = 13),
-        axis.text.x = element_text(size = 13, color = "#3B3B3B"),
-        axis.text.y = element_text(size = 13, color = "#3B3B3B"),
-        axis.title = element_text(face = "bold", size = 13, color = "#3B3B3B")
-    ) +
-    labs(
-        x = "회기",
-        y = "정반응율(%)",
-        title = "Marsh & Cooke (1996)"
-    ) +
-    guides(shape="none") +
-    guides(color = guide_legend(title = "Phase"), shape = guide_legend(title="Phase")) +
-    scale_shape_manual(values = 0:10) +
-    geom_vline(data = B1_v, aes(xintercept = B1_v$max_B1 + 0.5),
-               linetype = "longdash", linewidth = 0.3, color = "grey10") +
-    geom_vline(data = T1_v, aes(xintercept = T1_v$max_T1 + 0.5),
-               linetype = "longdash", linewidth = 0.3, color = "grey10") + 
-    stat_smooth(method = "lm", se = FALSE, color = "#3B3B3B", size = 0.5, alpha = 1, linetype="dashed")
+sced.plot <- sced.plot + stat_smooth(method = "lm", se = FALSE, color = "#3B3B3B", size = 0.5, alpha = 1, linetype="dashed")
 
 sced.plot %>%  ggplotly() 
-
 ```
 
 :::
