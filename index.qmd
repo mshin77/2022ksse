@@ -14,8 +14,11 @@ format:
     code-overflow: scroll
     code-link: true
     highlight-style: a11y
-    touch: false
+    touch: true
     controls: true
+    hash-type: number
+    hash-one-based-index: true
+    slide-tone: true
 linestretch: 1.5
 width: 1024 
 height: 768
