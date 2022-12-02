@@ -76,15 +76,7 @@ execute:
 
 ---
 
-## `단일대상 실험설계 연구의 특성` 
-
-- 개별 학생(*N*=1) 또는 소집단을 대상으로 중재를 제공
- 
-- 행동의 예측, 검증, 재현 과정을 통하여 내적 타당도를 확인 
- 
-- 그래프 데이터가 수집되어야 하며, 시각적인 분석이 이루어짐
- 
-- 연구설계에 따라서 기초선, 중재, 유지, 일반화 구간 등 설정 
+## `단일대상 문헌분석 연구 동향` 
 
 ```{r}
 suppressPackageStartupMessages({
@@ -99,6 +91,50 @@ suppressPackageStartupMessages({
     library(sjPlot)
 })
 
+wos <- read_csv("https://raw.githubusercontent.com/mshin77/2022ksse/main/data/wos.csv", show_col_types = FALSE)
+
+year_doc <- wos %>%
+  group_by(PY) %>%
+  dplyr::summarize(publication_number = n()) 
+
+year_TC <- wos %>%
+    group_by(PY) %>%
+    dplyr::summarize(total_citation = sum(TC))
+
+year_doc_counts_all <-  left_join(year_doc, year_TC, by = "PY")
+
+year_citation_plot <- year_doc_counts_all %>%
+    ggplot() +
+    geom_col(aes(PY, publication_number*20), fill = "#B3B3B3") +
+    geom_line(aes(PY, total_citation), size = 0.5, color="#4C4E52") +
+    geom_point(aes(PY, total_citation), size = 1.5, color = "#4C4E52") +
+    scale_y_continuous(sec.axis = sec_axis(~./20, name = "논문 수")) +
+    labs(x = "", y = "논문 인용 횟수", fill = "") +
+    theme_classic(base_size = 13) +
+        theme(
+        axis.line = element_line(color = "#404040", size = 0.2),
+        axis.title = element_text(size = 15, color = "#404040"),
+        axis.text.y.left = element_text(margin = margin(l = 9)),
+        axis.text.y.right = element_text(margin = margin(r = 15))
+)
+
+year_citation_plot 
+```
+
+[데이터베이스: Web of Science, 1970-2022, 총 4,679편 (“single case” OR “single subject” OR “N of 1” OR “small N” OR “multiple baseline” OR “multiple probe” OR “alternating treatment” OR “reversal design” OR “withdrawal design” OR “changing criterion” ) AND (“meta-analysis” OR “synthesis” OR “review”)]{style="font-size: 0.65em"}
+---
+
+## `단일대상 실험설계 연구의 특성` 
+
+- 개별 학생(*N*=1) 또는 소집단을 대상으로 중재를 제공
+ 
+- 행동의 예측, 검증, 재현 과정을 통하여 내적 타당도를 확인 
+ 
+- 그래프 데이터가 수집되어야 하며, 시각적인 분석이 이루어짐
+ 
+- 연구설계에 따라서 기초선, 중재, 유지, 일반화 구간 등 설정 
+
+```{r}
 AB <- read_csv("https://raw.githubusercontent.com/mshin77/2022ksse/main/data/ABAB.csv", show_col_types = FALSE)
 
 AB$Case <- paste0("학생 ", AB$Case, sep = "")
