@@ -18,7 +18,7 @@ format:
     controls: true
     hash-type: number
     hash-one-based-index: true
-    slide-tone: true
+    slide-tone: false
 linestretch: 1.5
 width: 1024 
 height: 768
