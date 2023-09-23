@@ -1,0 +1,4 @@
+- source: index.qmd
+  quarto-pub:
+    - id: aadbbdb2-166b-4d35-9a07-2d12cc5ba279
+      url: 'https://quartopub.com/sites/mshin77/2022ksse'
